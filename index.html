@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    
+    <script>
+        
+        function getComputerChoice() {
+
+            let ans = Math.floor(Math.random() * 3);
+
+            let computer_choice;
+            
+            if(ans == 0) {
+                // alert("Rock");
+                computer_choice = "Rock";
+            }
+
+            if(ans == 1) {
+                // alert("Paper");
+                computer_choice = "Paper";
+            }
+
+            if(ans == 2) {
+                // alert("Scissors");
+                computer_choice = "Scissors";
+            }
+        }
+
+        function getUserChoice() {
+
+            let user_choice = prompt();
+        }
+
+    </script>
+
+</body>
+</html>
