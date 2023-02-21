@@ -14,30 +14,94 @@
         function getComputerChoice() {
 
             let ans = Math.floor(Math.random() * 3);
-
-            let computer_choice;
             
             if(ans == 0) {
                 // alert("Rock");
-                computer_choice = "Rock";
+                return "Rock";
             }
 
             if(ans == 1) {
                 // alert("Paper");
-                computer_choice = "Paper";
+                return "Paper";
             }
 
             if(ans == 2) {
                 // alert("Scissors");
-                computer_choice = "Scissors";
+                return "Scissors";
             }
         }
 
-        function getUserChoice() {
+        // function getUserChoice() {
 
-            let user_choice = prompt();
+        //     let user_choice = prompt();
+        // }
+
+        function playRound (computerSelection, playerSelection) {
+
+            if(computerSelection == playerSelection) {
+
+                return "It's a tie.";
+            }
+
+            if(computerSelection == "Rock" && playerSelection == "Paper") {
+
+                return "User Wins";
+            }
+
+            if(computerSelection == "Rock" && playerSelection == "Scissors") {
+
+                return "Computer Wins";
+            }
+
+            if(computerSelection == "Paper" && playerSelection == "Rock") {
+
+                return "Computer Wins";
+            }
+
+            if(computerSelection == "Paper" && playerSelection == "Scissors") {
+
+                return "User Wins";
+            }
+
+            if(computerSelection == "Scissors" && playerSelection == "Paper") {
+
+                return "Computer Wins";
+            }
+
+            if(computerSelection == "Scissors" && playerSelection == "Rock") {
+
+                return "User Wins";
+            }
         }
 
+        const playerSelection = prompt("Rock, Paper, Scissors?", "");
+        const computerSelection = getComputerChoice();
+        
+        let playerScore = 0;
+        let computerScore = 0;
+
+        // console.log(playRound(computerSelection, playerSelection));
+
+        function game() {
+
+            for(let i = 0; i < 5; i++){
+
+                let winner = playRound(computerSelection, playerSelection);
+
+                if(winner == "User Wins") [
+                    playerScore = playerScore + 1
+                ]
+                if(winner == "Computer Winns") {
+                    computerScore = computerScore + 1
+                }
+            }
+
+            if(playerScore > computerScore) return "You Won";
+            if(playerScore < computerScore) return "Computer Won";
+            if(playerScore === computerScore) return "It's a tie";
+        }
+
+        console.log(game());
     </script>
 
 </body>
