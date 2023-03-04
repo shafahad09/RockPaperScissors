@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    
+    <script>
+        
+        function getComputerChoice() {
+
+            let ans = Math.floor(Math.random() * 3);
+            
+            if(ans == 0) {
+                return "rock";
+            }
+
+            if(ans == 1) {
+                return "paper";
+            }
+
+            if(ans == 2) {
+                return "scissors";
+            }
+        }
+
+        function playRound (computerSelection, playerSelection) {
+
+            if(computerSelection == playerSelection) {
+
+                return "It's a tie.";
+            }
+
+            if(computerSelection == "rock" && playerSelection == "paper") {
+
+                return "You Won";
+            }
+
+            if(computerSelection == "rock" && playerSelection == "scissors") {
+
+                return "Computer Won";
+            }
+
+            if(computerSelection == "paper" && playerSelection == "scissors") {
+
+                return "You Won";
+            }
+
+            if(computerSelection == "paper" && playerSelection == "rock") {
+
+                return "Computer Won";
+            }
+
+            if(computerSelection == "scissors" && playerSelection == "rock") {
+
+                return "You Won";
+            }
+
+            if(computerSelection == "scissors" && playerSelection == "paper") {
+
+                return "Computer Won";
+            }
+        }
+        
+        let playerScore = 0;
+        let computerScore = 0;
+
+        function game() {
+
+            for(let i = 0; i < 5; i++){
+
+                const playerSelection = prompt("Rock, Paper, Scissors?", "").toLowerCase();
+                const computerSelection = getComputerChoice();
+
+                let winner = playRound(computerSelection, playerSelection);
+
+                if(winner == "You Won") [
+                    playerScore = playerScore + 1,
+                    alert(playerSelection + " beats " + computerSelection + "\nYour score: " + playerScore + " & Computer score: " + computerScore )
+                ]
+                if(winner == "Computer Won") {
+                    computerScore = computerScore + 1,
+                    alert("Your score: " + playerScore + " & Computer score: " + computerScore )
+                }
+                if(winner == "It's a tie.") {
+                    alert("It's a tie");
+                    alert("Your score: " + playerScore + " & Computer score: " + computerScore )
+                }
+            }
+
+            if(playerScore > computerScore) return "You Won";
+            if(playerScore < computerScore) return "Computer Won";
+            if(playerScore === computerScore) return "It's a tie";
+        }
+
+        alert(game());
+    </script>
+
+</body>
+</html>
